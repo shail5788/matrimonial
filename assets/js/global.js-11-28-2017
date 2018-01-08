@@ -1,0 +1,714 @@
+
+  /* for Home Slide */
+  $(document).ready(function(){
+      //Auto image load functionality on signup Company
+    // $('.image').hide();
+/* home search start*/
+jQuery(".search-tab").click(function()
+  {
+  jQuery(".search-row").addClass("active");
+  }
+)
+jQuery(".drop-box .box").click(function()
+  {
+	var count=jQuery(this).find("ul li").length;
+
+	if(count>5)
+	 {
+		   jQuery(".drop .drop-box ul").addClass("active");
+		}
+	else
+	{
+	  jQuery(".drop .drop-box ul").removeClass("active");
+	}
+
+
+
+if(jQuery(this).find("ul").css("display")=="block")  
+  {
+    jQuery(".drop-box .box ul").slideUp(300);
+    jQuery(".search-row .drop").css("overflow","hidden");
+	jQuery(".drop .drop-box ul").removeClass("active");
+    
+  }  
+  else
+  {
+    jQuery(".drop-box .box ul").slideUp(300);
+    jQuery(this).find("ul").slideDown(300);
+    jQuery(".search-row .drop").css("overflow","inherit");
+  }
+  }
+)
+
+
+/* home search close*/
+
+/* gender start*/
+	jQuery(document).click(function()
+	{
+	  jQuery(".gender").next("label").css("display","block");
+	  jQuery(".gender").find("ul").css("display","none");
+
+	});
+
+jQuery(".gender").click(function()
+	{
+	  jQuery(this).next("label").css("display","none");
+	  jQuery(this).find("ul").css("display","block");
+	  event.stopPropagation();
+	}
+)
+
+
+/* gender close*/
+
+
+    $("#logo").change(function() {
+      var file = this.files[0];
+      var imagefile = file.type;
+      
+      var match= ["image/gif","image/jpg","image/png","image/jpeg"];
+      if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]) || (imagefile==match[3]))){
+        $(".logo-error").html("Please select a valid image file.");
+        $('#logo-name').html('');
+        var img=$("#previewing").val();
+        if(img == ''){
+          $("#previewing").attr("src"," ");
+        }
+        $('#default-image').show();
+        $('.img-circle').show();
+        return false;
+      }  
+      else{
+        $('.img-circle').show();
+          $('#default-image').hide();
+        var src = $(this).val();
+        $(".logo-error").html('');
+        $('#logo-name').html(src);
+        var reader = new FileReader();
+        reader.onload = imageIsLoaded;
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+
+  function imageIsLoaded(e) {
+    $("#logo").css("color","green");
+    $('.form-group').css("display", "block");
+    $('#previewing').attr('src', e.target.result);
+    $('#previewing').attr('width', '100');
+    $('#previewing').attr('height', '100');
+  }
+
+
+
+     jQuery('.homeslider').bxSlider({
+    auto: true,
+    autoControls:true
+    });
+
+  });
+  
+
+
+ $(function(){
+         
+         $("#signUpp").validate({
+              
+         rules:{
+               name:{
+                    
+                    required:true
+                    // nameValidation:true
+                },
+
+                email:{
+                    
+                    required:true,
+                    email: true
+                },
+                phone:{
+                    required: true,
+                    number: true,
+                    minlength:10,
+                    maxlength:15
+                },
+                password:{
+                    required:true,
+                    strongPassword:true,
+                    minlength:8
+                },
+                repassword:{
+                  required: true,
+                  equalTo: "#Password"
+            }
+
+             },
+           messages: {
+              name: "<span class='redalert'>Please enter your name</span>",
+              email:"<span class='redalert'>Please enter a valid email address</span>",
+              phone:{
+                required:"<span class='redalert'>Please enter your phone number</span>",
+                number:"<span class='redalert'>Please enter only numeric value</span>",
+                minlength:"<span class='redalert'>Please enter Minimum 10 Digit</span>",
+                maxlength:"<span class='redalert'>Please enter Maximum 15 Digit</span>"
+              },
+              password:{
+                 strongPassword:"<span class='redalert'>Password must contains aleast one number one char </span>" ,
+                 minlength:"<span class='redalert'>Password must be minimum 8 digits long</span>"
+              },
+              Repassword:{
+                 equalTo: "<span class='redalert'>Passwords don't match </span>"
+              }
+           } 
+         });
+         $.validator.addMethod('strongPassword', function(value, element) {
+          return this.optional(element) 
+            || /\d/.test(value)
+            && /[a-z]/i.test(value)&& /[A-Z]+/.test(value);
+        }, 'Password must contain at least one number and one char\'.');
+
+     });
+  //  $.validator.addMethod('nameValidation' ,function(value, element) {            
+  //   var values = value.split(' ');    
+
+  //   if(/^[a-zA-Z] [a-zA-Z]+$/.test(value) == true)
+  //     ab = false;
+  //      else if(parseInt(values.length) > 2)
+  //        ab = false;
+  //      else if(parseInt($.trim(values[0]).length) <= 0)
+  //       ab = false;
+  //      else if(parseInt($.trim(values[1]).length) <= 0) 
+  //       ab = false;
+  //    else                 
+  //     ab = true; 
+  //    return ab;  
+  // };
+
+// JavaScript Document
+function popupOpen(elementid)
+{  
+  if(jQuery("#"+elementid).css("display")=="none")
+  {
+    //alert("hello")
+	  jQuery(".overlay-bg").fadeIn(300);    
+    jQuery(".popup-box").hide();
+    jQuery("#"+elementid).fadeIn(300);
+    jQuery(window).scrollTop(0);
+  }
+  else
+  {
+    //alert("bye")
+     jQuery(".overlay-bg").fadeOut(300);
+     jQuery(".popup-box").fadeOut(300);
+  }	
+
+}
+
+function hideBorder(id){
+	
+  var data=$("#"+id).val();
+
+   if(data!='') {
+    
+      $(".lemail ."+id).hide();
+       $(".lemail #"+id+"-error").hide();
+      $(".lpass ."+id).hide();
+      $(".uname ."+id).hide();
+      $(".uemail ."+id).hide();
+      $(".umobile ."+id).hide();
+      $(".umobile #"+id+"-error").hide();
+      $(".uemail ."+id).hide();
+      $(".upass ."+id).hide();
+      $(".urpass ."+id).hide();
+      $(".forPass ."+id).hide();
+      $(".ufname ."+id).hide();
+      $(".ufemail ."+id).hide();
+
+      $("#"+id).addClass("changeclass");    
+   }    
+   else{
+    
+     $("#"+id).removeClass("changeclass");
+     $("#"+id).addClass("validclass"); 
+   }
+   
+}
+function hiddFun(id){
+    $("#"+id).css("border","1px solid #ccc");
+}
+
+isValidEmailAddress=function(emailAddress){
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);    
+  }
+
+$("#userRegister").click(function(){
+
+        var name=$("#name").val();
+        var email=$("#email").val();
+        var mobile=$("#phone").val();
+        var password=$("#Password").val();
+        var repassword=$("#repassword").val();
+
+   
+      
+        if(name==""){
+           
+           $(".name").show();
+           $("#name").removeClass('changeclass'); 
+           $("#name").addClass('validclass'); 
+           $("#name").focus();
+        }
+        else if(mobile==""){
+           
+           $(".mobile").show();
+           $("#mobile").removeClass('changeclass'); 
+           $("#mobile").addClass('validclass'); 
+           $("#mobile").focus();
+
+        }else if(mobile.length<10 || mobile.length >15){
+           
+           $(".mobile").show();
+           $("#mobile").removeClass('changeclass'); 
+           $("#mobile").addClass('validclass');  
+           $("#mobile").focus();  
+           $("#regshowMsg").show();
+           $("#regshowMsg").html("<span>Mobile not less than 10 or not greater than 15</span>");
+           setTimeout(function(){
+                      $("#regshowMsg").hide();
+                    },3000);
+
+        }else if(email==""){
+           
+           $(".email").show();
+           $("#email").removeClass('changeclass'); 
+           $("#email").addClass('validclass'); 
+           $("#email").focus();
+
+        }else if(password==""){
+           
+           $(".Password").show();
+           $("#Password").removeClass('changeclass'); 
+           $("#Password").addClass('validclass'); 
+           $("#Password").focus();
+
+        }else if(password.length<8){
+        
+           $(".Password").show();
+           $("#Password").removeClass('changeclass'); 
+           $("#Password").addClass('validclass'); 
+           $("#Password").focus();
+          
+           
+      
+        }
+
+  else if(repassword==""){
+           $(".Repassword").show();
+           $("#Repassword").removeClass('changeclass'); 
+           $("#Repassword").addClass('validclass'); 
+           $("#Repassword").focus();
+
+        }else if(password!=repassword){
+            $(".Repassword").show();
+            $("#Repassword").removeClass('changeclass'); 
+            $("#repassword").addClass('validclass');  
+            $("#repassword").focus();
+
+        }else{
+
+           
+            var action="registerUser";  
+            data={name:name,email:email,mobile:mobile,password:password,action:action};
+            
+            $.post('ajax.php',data,function(data){
+                console.log(data);
+                if(data.response){
+                   setTimeout(function(){
+                     $("#otp_code").val(data.otp);
+                     popupOpen("mobileVerification");
+                   },1000);
+                  
+                 }else{
+                   
+                    $("#regshowMsg").show();
+                    $("#regshowMsg").html("<span>"+data.message+"</span>");
+                    
+                    setTimeout(function(){
+                      $("#regshowMsg").hide();
+                    },3000);
+
+                 }
+            },'json');
+            // alert("form submit");
+        }
+});
+
+$("#getLogin").click(function(){
+
+        
+        var username=$("#username").val();
+        var password=$("#password").val();
+
+        if(username==""){
+         
+           $(".username").show();
+           $("#username").removeClass('changeclass'); 
+           $("#username").addClass('validclass');
+           $("#username").focus();
+        }else if(!isValidEmailAddress(username)){
+
+           $(".username").show();
+           $("#username").removeClass('changeclass'); 
+           $("#username").addClass('validclass');
+           $("#username").focus();
+
+        }else if(password==""){
+           
+           $(".password").show();
+           $("#password").removeClass('changeclass');  
+           $("#password").addClass('validclass');
+           $("#password").focus();
+
+        }else{
+           
+              var action="userlogin";
+              var msg="";  
+              data={username:username,password:password,action:action};
+            
+              $.post('ajax.php',data,function(data){
+                console.log(data);
+
+                if(data.response){
+                  window.location.href="index.php";
+                }else if(data.statuscode=="500"){
+                   msg="Invalid Password !";
+                     $("#showMsg").show();
+                     $("#showMsg").html(msg);
+                   setTimeout(function(){
+                       $("#showMsg").hide();
+                   },3000);
+
+                }else if(data.statuscode=="501"){
+                  msg="Invalid User !";
+                    $("#showMsg").show();
+                    $("#showMsg").html(msg);
+                  setTimeout(function(){
+                     $("#showMsg").hide(); 
+                   },3000);
+
+                }
+            },'json');
+        }
+});
+
+// forget password 
+$("#changePassword").click(function(){
+   
+      var email=$("#emailAddress").val();
+      var action="forgetPassword";
+
+      if(email==""){
+           
+           $(".emailAddress").show();
+           $("#emailAddress").removeClass('changeclass'); 
+           $("#emailAddress").addClass('validclass');
+           $("#emailAddress").focus();
+
+      }else if(!isValidEmailAddress(email)){
+
+           $(".emailAddress").show();
+           $("#emailAddress").removeClass('changeclass'); 
+           $("#emailAddress").addClass('validclass');
+           $("#emailAddress").focus();
+
+      }else{
+         
+           $.post("ajax.php",{email:email,action:action},function(data){
+
+                console.log(data);
+                 if(data.response){
+
+                    $(".showfeedBack").show();
+                    $(".showfeedBack").html("<span class='alert alert-success'>Success!Please check your Register email</span>");
+                    setTimeout(function(){
+                      $(".showfeedBack").hide();
+                    },3000);
+                 }else{
+
+                    $(".showfeedBack").show();
+                    $(".showfeedBack").html("<span class='alert alert-danger'>Wrong!This is not registerd email </span>");
+                     setTimeout(function(){
+                      $(".showfeedBack").hide();
+                    },3000);
+
+                 }
+           },'json'); 
+      }
+
+
+});
+
+// reset password 
+
+ $("#reset_password").click(function(){
+      
+      var password=$("#newPass").val();
+      var resPass=$("#newCpass").val();
+   
+      if(password==""){
+           
+           // $("#newPass").removeClass('changeclass'); 
+           // $("#newPass").addClass('validclass');
+            $("#newPass").css("border",'1px solid red');
+            $("#newPass").focus();
+
+      }else if(password.length<8){
+           
+            $("#newPass").css("border",'1px solid red');
+            $("#newPass").focus();
+
+            $(".nmessage").show();
+            $(".nmessage").html("<span class='alert alert-danger'>Password must be atleast 8 digits </span>");
+            
+            setTimeout(function(){
+              $(".nmessage").hide();
+            },3000);
+
+
+      }else if(resPass==""){
+
+          $("#newCpass").css("border",'1px solid red');
+          $("#newCpass").focus();
+
+          
+
+      }else if(password!=resPass){
+           
+           $("#newCpass").css("border",'1px solid red');
+           $("#newCpass").focus();
+           $(".nmessage").show();
+           $(".nmessage").html("<span class='alert alert-danger'>Repassword did not match </span>");
+            
+            setTimeout(function(){
+              $(".nmessage").hide();
+            },3000);
+
+      
+      }else{
+            
+            var action="resettingPassword";
+            var user_id=$("#user_id").val();
+            $.post("ajax.php",{action:action,password:password,user_id:user_id},function(data){
+
+                 console.log(data);
+            });
+      }
+
+
+ });
+
+// getCountry
+
+$("#getCountry").change(function(){
+
+       var key=$(this).val();
+       var action="GetSelectedcountryStates";
+       var html='';
+       
+       $.post("ajax.php",{key:key,action:action},function(data){
+
+            for(var i=0;i<data.length;i++)
+            {
+               html+='<option value="'+data[i].id+'">'+data[i]['name']+'</option>';   
+            }
+
+            $("#getState").html(html);
+
+       },'json');
+});
+
+
+$("#about").keyup(function(){
+    
+     var data=$(this).val();
+     var total = 600-data.length;
+     $("#max_size").text(total);
+    
+
+     if(total==0){
+
+      
+
+      return false;
+     }
+   
+   
+}); 
+
+$("#saveFeedback").click(function(){
+  
+        var name=$("#fname").val();
+        var email=$("#femail").val();
+        var message=$("#message").val();
+        var action="feedbackSave";
+        alert(name+" "+email+" "+message);
+        if(name==""){
+            
+           $(".name").show();
+           $("#name").removeClass('changeclass'); 
+           $("#name").addClass('validclass'); 
+           $("#name").focus();
+
+        }else if(email==""){
+           
+           $(".email").show();
+           $("#email").removeClass('changeclass'); 
+           $("#email").addClass('validclass'); 
+           $("#email").focus();
+
+        }else if(!isValidEmailAddress(email)){
+           
+           $(".email").show();
+           $("#email").removeClass('changeclass'); 
+           $("#email").addClass('validclass'); 
+           $("#email").focus();
+
+        }else if(message==""){
+          
+        }else{
+
+            $.post("ajax.php",{name:name,email:email,message:message,action:action},function(data){
+
+                  console.log(data);
+                  
+                  if(data.response){
+                      
+                       $("#feedshowMsg").show();
+                       $("#feedshowMsg").html("<span class='alert alert-success'>Thank you We contact you soon !</span>")   ; 
+                       setTimeout(function(){
+                         $("#feedshowMsg").hide();
+                         $("#feedbackpop").hide();    
+                      },3000);
+                  }else{
+                       
+                        $("#feedshowMsg").show();
+                        $("#feedshowMsg").html("<span class='alert alert-danger'>Sorry! Internal server error </span>") ;   
+                        setTimeout(function(){
+                         $("#feedshowMsg").hide();
+                         $("#feedbackpop").hide();    
+                      },3000);
+                  }
+
+            },'json');
+        }
+
+
+});
+
+ $("#verify_otp").click(function(){
+
+     var otp=$("#otp_code").val();
+     var action ="mobileVerificationCode";
+     if(otp==""){
+
+           $(".otp_code").show();
+           $("#otp_code").removeClass('changeclass'); 
+           $("#otp_code").addClass('validclass'); 
+           $("#otp_code").focus();
+
+     }else{
+
+         $.post("ajax.php",{otp:otp,action:action},function(data){
+
+              console.log(data);
+              
+              if(data.response){
+                
+                window.location.href="create-profile.php";
+
+              }else{
+                $("#Verified").show();
+                $("#Verified").html("<span class='alert alert-danger'>Otp either used or worng </span>");   
+                
+                  setTimeout(function(){
+                       $("#Verified").hide();
+                       // $("#mobileVerification").hide();
+                  },3000);  
+              }
+         },'json');
+     }
+ });
+
+// serching code start 
+$("#getSearching").click(function(){
+
+      window.location.href="search-list.php"; 
+});
+ 
+/* chat start*/  
+  
+jQuery(".online-chat .title").click(function()
+  {
+   if(jQuery(".chat-list-box").css("display")=="none")
+    {
+    jQuery(".chat-list-box").slideDown(300);
+    }
+   else
+    {
+    jQuery(".chat-list-box").slideUp(300);
+    }
+    
+  })  
+/* chat close*/ 
+
+
+
+  function ValidateAlpha(evt) 
+     {  
+     var keyCode = (evt.which) ? evt.which : evt.keyCode 
+     if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32)                 return false;            return true;    }    
+
+     function ValidateNum(evt) 
+     {  
+     var keyCode = (evt.which) ? evt.which : evt.keyCode 
+     if ((keyCode <48 || keyCode >57))
+     return false;
+     else 
+     return true; 
+        }  
+
+
+$(document).ready(function(){
+  $('body').on('click', '[id^=planID-]', function (e){
+     var requestID  = $(this).attr('id');
+     var requestArr = requestID.split('-');
+      $.ajax({
+        type: "POST",
+        url: 'ajax.php',
+        data: "action=planShow&planID="+requestArr[1],
+        success: function(result) {
+          var obj = jQuery.parseJSON(result);
+          var name = obj.name+' starts @ ₹ '+obj.price;
+          $("#planName").text(name);
+          $("#planN").text(name);
+          var i = 1;
+           $("[id^='benfitID-']").each(function() {
+              var benfitID = $(this).attr('id');
+              var benID = [];
+              benID = benfitID.split('-');
+              if(jQuery.inArray(benID[1], obj.benfit) !== -1){
+                 $(this).attr("class",'fa fa-check');
+              }else{
+                 $(this).attr("class",'fa fa-times');
+              }
+            });
+        },
+        error: function(data) {
+          console.log(data);
+        }     
+     
+      });
+  });
+});
+

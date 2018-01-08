@@ -1,0 +1,124 @@
+body{ margin:0px; padding:0px; font-family: 'Roboto', sans-serif; font-size:18px; color:#424242; background:#f3f3f3;}
+div, ul, li{ margin:0px; padding:0px; list-style:none;}
+h1, h2, h3, h4, h5, h6{ margin:0px; padding:0px;}
+a{ text-decoration:none; font-size:18px;color:#000000;}
+a:hover{text-decoration:none;}
+img{ vertical-align:middle;}
+p{ margin:0px; padding:0px; line-height:18pt; font-size:15px;}
+
+/* Spacing Start */
+.m-l-10{margin-left:10px !important;}
+.m-l-20{margin-left:20px !important;}
+.m-l-38{margin-left:38px !important;}
+
+.middle{ width:auto;}
+.middle div[class|=col]{ float:none; display:inline-block; vertical-align:middle; margin:0px -2px;}
+.flex{ display:flex; align-items:center;}
+.flex1{ display:flex; align-items:stretch;}
+.no-space{ width:auto; margin:0px; padding:0px;}
+.no-space div[class|=col]{ margin:0px; padding:0px;}
+
+.title{ font-size:40px; text-align:center; padding:20px 0px;}
+.text{ padding:25px 0px;}
+.text p{ font-size:30px; line-height:30pt;}
+.text p a{ font-size:30px; color:#ff4f60;}
+.module{ width:auto; padding:30px 0px;}
+.module2{width:auto; padding:10px 0px;}
+/* Spacing Close */
+
+
+/* banner start */
+.wrapper{ width:auto; overflow:hidden; height:630px;}
+
+.banner{ width:100%; background:url(../images/banner.jpg) center top no-repeat; height:630px; position:absolute; left:0px; top:0px;}
+.header{ width:auto; margin:60px 0 0 0px; background:#ff4f60; position:relative; z-index:1;}
+.header .logo{ background:#fff; text-align:center; height:100%; padding:15px 0px; width:90%;}
+.header .logo img{ margin:0 auto; width:80px;}
+.header .links{ width:auto; text-align:right;}
+.header .links ul{ width:auto; padding:0 0px 0 0px;}
+.header .links ul li{ display:inline-block; margin:0 40px 0 0px;}
+.header .links ul li a{ color:#fff; display:block; text-align:center; text-transform:uppercase; font-size:20px; }
+.header .links ul li a.drop{background:url(../images/link-arrow.png) right center no-repeat; padding:25px 35px;}
+.header .links ul li a img{ margin:0 10px 0 0px; display:inline-block; vertical-align:middle;}
+
+.search{ width:auto; position:relative; z-index:2; margin:280px 0 0 0px; text-align:center;}
+.search ul{ width:auto; padding:30px 20px; background:rgba(0,0,0,0.6); border-radius:6px; display:block;}
+.search ul li{ display:inline-block; margin:0 5px;}
+.search ul li label{ display:block; color:#fff; font-weight:normal; text-align:left;}
+.search ul li .text{ width:100%; background:#fff; border-radius:4px; padding:10px 15px; border:0px; width:140px; font-size:20px;}
+.search ul li .submit{ width:100%; background:#fff; border-radius:4px; padding:10px 15px; font-size:20px; border:0px; width:120px; background:#ff4f60; color:#fff; text-align:center; border:0px; cursor:pointer;}
+/* banner close */
+
+.membership{ width:auto; background:#dddddd;}
+.membership .box{ width:auto; position:relative; padding:10px 40px 0 140px; margin:40px 0px;}
+.membership .box h4{ color:#424242; font-size:27px; font-weight:bold; margin:0 0 10px 0px;}
+.membership .box p{ font-size:24px; color:#424242; line-height:28pt;}
+.membership .box .icon{ position:absolute; left:0px; top:12px; width:130px;text-align:center;}
+.membership .btns{ width:auto; padding:50px 0px;}
+.membership .btns p{ width:auto; text-align:center;}
+.membership .btns p a{ width:auto; text-align:center; background:#225181; color:#fff; display:inline-block; font-size:35px; padding:30px 40px; border-radius:6px;}
+.membership .btns p a:hover{ background:#ff4f60;}
+.membership .btns p span{ width:auto; text-align:center; font-size:25px; padding:20px 0px; display:block;}
+
+.appbox{ width:auto;}
+.appbox .area{ width:auto; padding:0 0 0 45px;}
+.appbox .image{ width:auto;}
+.appbox .title{ text-align:left;}
+.appbox ul{ width:auto;}
+.appbox ul li{ margin:0px 20px 0 0px; display:inline-block;}
+.appbox ul li img{}
+
+.about{ width:auto; background:#dddddd;}
+.about p{ font-size:18px; line-height:22pt;}
+.about p strong{ color:#000; font-size:25px; margin:0 8px 0 0px;}
+.about .img{ text-align:center;}
+
+.footer{ background:#242424;}
+.footer .f-title{ width:auto; color:#fff; font-size:22px; margin:0 0 10px 0px;}
+.footer .link{ width:auto; margin:0 0 20px 0px;}
+.footer .link ul{ width:auto;}
+.footer .link ul li{ text-align:center; text-align:left;}
+.footer .link ul li a{ color:#a7a7a7; display:block; padding:5px 0px; }
+.footer .link1{ width:auto;}
+.footer .link1 ul{ width:auto;}
+.footer .link1 ul li{ display:inline-block;}
+.footer .link1 ul li .f-img{ max-width:150px; min-height:50px;}
+.footer .link1 ul li img{  margin:0 10px 0 0px;}
+.footer .callus p{ font-size:30px; color:#fff; padding:5px 0px;}
+.footer1{ width:auto; background:#1d1d1d; padding:15px 0px;}
+.footer1 p{ text-align:center; font-size:14px; color:#fff;}
+
+
+/*==================== popup css Start ==================*/
+.overlay-bg{background:#000; width:100%; height:100%; position:fixed; z-index:10; opacity: 0.6;}
+.popup-box{width:540px; margin:0 auto;  background:#fff; position:absolute; left:0px; right:0px; z-index:15; top:100px; padding:20px; border-radius:6px; }
+.popup-box .cut{border-radius:50%; color:#fff; font-size:26px; height:40px; line-height:40px; position:absolute; right:-20px; text-align:center; top:-20px; width:40px; cursor:pointer; background:#d90429;}
+
+.popup-box h3{display:block; font-size:30px; color:#000; margin:30px 0px 0px; text-align:center;}
+
+.forminput{margin:0px; padding:50px 20px 10px; width:100%;}
+.forminput ul{width:auto;}
+.forminput ul li{margin:0px 0px 10px; padding:0px; display:block; position:relative;}
+.forminput ul li .text{border:solid 2px #ccc ; margin: 0; padding:10px 5px; width: 100%; display:block;}
+
+
+.forminput ul li label{color:#aaa; display:block; transition: 0.3s; font-size:15px; position:absolute; left:20px; top:15px; right:0px; font-weight:normal;}
+.forminput ul li label span{color:#d90429; font-size:10px;}
+.forminput ul li .text:focus, input {outline:none; border:0px;}
+.forminput ul li .text:focus ~ label{right:15px; left:0px; text-align:right;}
+
+.forminput ul li p{display:block; margin:0px; padding:10px 0px; font-size:18px; color:#000;}
+.forminput ul li p .textCheck{border:solid 1px #ff6b5c;}
+.forminput ul li p a{text-align:right; display:inline-block; margin-left:10px; float:right; color:#20aad7;}
+
+.pop-control{margin:0px; padding:0px; text-align:center; width:100%;}
+.pop-control ul{width:auto;}
+.pop-control ul li{margin:10px 0px; padding:0px; display:block; border-bottom:solid 1px #ccc;}
+.pop-control ul li:last-child{border-bottom:solid 0px #ccc;}
+.pop-btn{background:#ff4f60; display:inline-block; width:80%; margin:20px auto; padding:10px 0px; text-align:center; font-size:30px; text-transform:uppercase; border:0px; border-radius:5px; color:#fff;}
+.pop-btn:hover{background:#242424;}
+.pop-btn1:hover{background:#ff4f60;}
+.pop-btn1{background:#242424; display:inline-block; width:80%; margin:20px auto; padding:10px 0px; text-align:center; font-size:30px; text-transform:uppercase; border:0px; border-radius:5px; color:#fff;}
+.pop-control ul li a{text-align:center; display:inline-block; margin-left:10px; color:#20aad7; font-size:28px;}
+
+/*==================== popup css Close ==================*/

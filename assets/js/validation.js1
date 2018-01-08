@@ -1,0 +1,31 @@
+$(document).ready(function(){
+     $("#cProfile").click(function(){
+
+     	  var nationality=$("#nationality").val();
+	      var dob=$("#dob").val();
+	      var height=$("#height").val();
+	      var Weight=$("#Weight").val();
+	      var mstatus=$("#mstatus").val();
+	      var education=$("#education").val();
+	      var professional=$("#professional").val();
+	      var address=$("#address").val();
+	      var country=$("#getCountry").val();
+	      var state=$("#getState").val();
+	      var city=$("#city").val();
+	      var about=$("#about").val();
+
+	      if(nationality==""){
+	          
+	          $("#nationality").css('border','1px solid red');
+	          $("#nationality").focus();
+	      
+	      }else{
+	      	  
+	      	  $("#creatingProfilefrm").submit();
+	      }
+     });
+      
+
+
+
+});

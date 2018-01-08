@@ -1,0 +1,40 @@
+<?php
+   include_once("includes/common-header.php"); ?>
+<div class="profile-banner"></div>
+ <div class="profile-row row middle">
+   <div class="col-sm-1">
+    <div class="profile-img"><img src="images/profile-image.jpg" /></div>
+  </div>
+  <div class="col-sm-6">
+    <div class="profile-detail">
+      <h1>Rajni Janjua</h1>
+      <h2>Add detail to your profile</h2>
+      <ul>
+       <li>Upload Photos :  28%</li>
+       <li>Upload Photos :  28% </li>
+       <li>Upload Photos :  28%</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="count-box">
+      <div class="box active">
+       <div class="count">20</div>
+       <p><strong>79</strong></p>
+       <p>Daily Recommendations</p>
+      </div>
+      <div class="box">
+       <div class="count">30</div> 
+       <p><strong>116</strong></p>
+       <p>Just Joined</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--member close-->
+  
+   
+</div>
+<!--menu close-->
+
+<?php include_once("includes/footer.php") ?>
